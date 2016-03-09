@@ -10,4 +10,4 @@ The game that I am going to implement this component is the Comp150 project: Ret
 
 ![alt text][trello]
 
-[trello]: https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "First Trello Board Sprint"
+[trello]: https://github.com/sw180283/comp110-coding-task-2/blob/master/First_Physics_Trello_Board.png "First Physics Trello Board"
