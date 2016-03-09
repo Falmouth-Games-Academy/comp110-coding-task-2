@@ -13,4 +13,4 @@ It will include:
 ###Proposal Trello Board
 Note that the user stories will be made more specific as we develop and playtest the game
 
-![Initial Trello Board](https://github.com/NecroReindeer/comp150-desktop-game/blob/level-generation/COMP110%20Coding%20Task%202/Initial%20Trello%20Board.png)
+![Initial Trello Board](https://github.com/NecroReindeer/comp110-coding-task-2/blob/master/Initial.Trello.Board.png)
