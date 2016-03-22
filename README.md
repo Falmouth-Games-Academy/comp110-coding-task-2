@@ -12,7 +12,7 @@ The game component I intend to make is an AI for the characters in the game. Aft
 
 ###Key user stories;
 
-![Trello board]()
+![Trello board](https://raw.githubusercontent.com/MaddieK19/comp110-coding-task-2/master/Trello%20board.PNG)
 
 ###Existing game the component will integrate into
 This component will be integrated into the characters in the COMP150 game.
