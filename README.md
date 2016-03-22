@@ -12,10 +12,7 @@ The game component I intend to make is an AI for the characters in the game. Aft
 
 ###Key user stories;
 
-* As a player I want to be able to move the characters 
-* As a player I don't want the characters to be static when I'm not controlling them
-* As a player I want the characters to react to fire
-* As a player I want the characters to react to low/no oxygen
+![Trello board]()
 
 ###Existing game the component will integrate into
 This component will be integrated into the characters in the COMP150 game.
