@@ -4,29 +4,39 @@
 The flowchart below shows the process that leads to the characters in the game changing between the idle, wandering and moving to user set destination states.
 ![Flowchart](https://raw.githubusercontent.com/MaddieK19/comp110-coding-task-2/master/Worksheet%206/WS6%20-%20Flowchart.png)
 
-The flowchart shows that if the character enters the dead state the game ends, if the character is alive it continues.  
-The character starts in the idle state where it doesn't move, the program then checks for user input if there is none it then adds to the timer and if the timer is greater than 5 the character moves into the wandering state. The wandering state also checks for player input. If there is player input it checks to see if the player has chosen a room that is oxygenated, if the room isn't oxygenated the character returns to its previous state. If the room is oxygenated the character moves to that room. The program then checks to see if the character is at the end point of the level. If it is the level ends if not the program loops back to check if the character is alive. 
-
 ##Pseudocode  
-The pseudocode below outlines part of the process that takes place when the character is near a fire. The character class will have a function that creates a list of nearby cells, it will then check those cells to see if any of them are on fire and the character will move away.
+The pseudocode below outlines part of the process that takes place when the character is in a room with low or no oxygen. The character class will have a function that creates a list of nearby cells, it will then check those cells to see if any of them are not oxygenated and the character will move away and the characters speed will be reduced.
 
 ```
 Get list of neighbour cells ( current cell/cell the character is on ):
-  above cell = current cell's Y + cellsize
-  below cell = current cell's Y - cellsize
-  right cell = current cell's X + cellsize
-  left cell = current cell's X - cellsize
+  above cell = current cell's Y + cell size
+  below cell = current cell's Y - cell size
+  right cell = current cell's X + cell size
+  left cell = current cell's X - cell size
   Add them all to a list of neighbour cells
   return the list
 
-
-For cells in neighbour cells list:
-  If cell is on fire
-    return true
+oxygen present = true
+For each cell in neighbour cells list:
+  If cell is not oxygenated 
+   character state = oxygen deprived
+  return cell 
+While character state = oxygen deprived
+  If character speed > 1
+    character speed - 0.5
+  Else 
+    character speed = 1
+  
+  If cell's X coordinate > than character's X coordinate
+     character's X coordinate - 1
   Else
-    return false
-
-(moving)
+    character's X coordinate + 1
+    
+  If cell's Y coordinate > than character's Y coordinate
+     character's Y coordinate - 1
+  Else
+    character's Y coordinate + 1
+  
 ```
   
 
