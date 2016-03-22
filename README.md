@@ -10,8 +10,6 @@ The game component I intend to make is an AI for the characters in the game. Aft
 * Running from fire: If there's a fire in the room they'll move away from it or into another room if possible
 * Oxygen deprived: If they oxygen level in the room is too low they'll move slower
 
-![diagram](https://raw.githubusercontent.com/MaddieK19/comp110-coding-task-2/master/Proposal%20diagram.png)
-
 ###Key user stories;
 
 * As a player I want to be able to move the characters 
