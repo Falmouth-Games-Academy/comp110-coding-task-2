@@ -32,9 +32,10 @@ For the oxygen I plan on designing it like a fluid, so the oxygen will flow arou
 ![UML](https://raw.githubusercontent.com/Alli1223/Worksheet-6/master/UML%20diagrams/Simple%20State%20Diagram.png "State Diagram")
 
 
-```
+
 ##Fire AI Pseudo Code
 
+```
 IF room has oxygen
 
 
