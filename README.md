@@ -30,3 +30,23 @@ For the oxygen I plan on designing it like a fluid, so the oxygen will flow arou
 
 ###UML State Diagram:
 ![UML](https://raw.githubusercontent.com/Alli1223/Worksheet-6/master/UML%20diagrams/Simple%20State%20Diagram.png "State Diagram")
+
+
+```
+##Fire AI Pseudo Code
+
+IF room has oxygen
+
+
+
+IF cell is empty 
+	IF cell contains oxygen
+		small random chance to spawn fire every frame
+		set cell state to be on fire
+		IF cell runs out of oxygen
+			Set cell state to empty
+		END IF
+	END IF
+END IF
+
+```
