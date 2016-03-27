@@ -5,10 +5,9 @@ Please fork it and check in your code and other material as detailed in the assi
 
 ## proposal for my coding task 2 work.
 
-For my coding task two i will take a component from my comp 150 group project game. I will be looking at the component where the hunter tracks the fox and shots at it and have the hunter lay traps. What I intend to create is a hunter who will chase the player at points during the level and attempt to hunt the fox by shooting the fox and laying traps and the players goal is to avoide the hunter and his traps. This component falls under the AI aspect of our COMP150 game because I intend to make the hunter track the fix by himself and shoot at it, reload and lay traps. I will take charge of the the hunter component in the group project.
+For my coding task two i will take a component from my comp 150 group project game. I will be looking at the component where the hunter moves around the screen and throw a net at the fox when it sees it and have the hunter lay traps. What I intend to create is a hunter who will move around certain points during the level and attempt to throw a net at the fox by shooting the fox and laying traps to catch not harm the fox because of the age demographic of our game and the players goal is to avoide the hunter and his traps and nets. This component falls under the AI aspect of our COMP150 game because I intend to make the hunter throw a net at the fox when it sees him and lay traps. I will take charge of the the hunter component in the group project.
 
 ##key aspects to my choosen mechanic
-- Hunter tracking fox
-- hunter shooting when fox is in sight
-- Hunter reloading when low on ammo
+- Hunter moves around screen
+- hunter Throws a net at fox when in sight
 - hunter laying traps to catch the player
