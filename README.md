@@ -11,3 +11,7 @@ For my coding task two i will take a component from my comp 150 group project ga
 - Hunter moves around screen
 - hunter Throws a net at fox when in sight
 - hunter laying traps to catch the player
+
+
+##Commits
+commits for the assignment will be made within my branch called hunter class within our group softfox repositiry on github.
