@@ -20,3 +20,5 @@ This component will be integrated into the characters in the COMP150 game.
 #### [Code is under the Character AI branch of the COMP150 game.](https://github.com/Wozzarick/Desktop_game/tree/Character-AI)
 
 #Sprint 1:
+![End of sprint 1](https://raw.githubusercontent.com/MaddieK19/comp110-coding-task-2/master/Trello%20board%20and%20cards/Sprint%201%20complete.PNG)  
+The characte can now transition between the idle, dead and player controlled states. The code for changing to the fire or wandering states is there but as those states don't work the character can't transition into them.
