@@ -2,7 +2,7 @@
 
 This is the repository for COMP110 Coding Task 2.
 Please fork it and check in your code and other material as detailed in the assignment brief.
-
+#Proposal:  
 ###The component that will be created:
 The game component I intend to make is an AI for the characters in the game. After some research I've decided to try and use a finite-state machine where the characters will have a series of states they can be in. The states will be:  
 * Controlled by user: this will be where the player has told them where to go and they are moving to that room
@@ -16,3 +16,7 @@ The game component I intend to make is an AI for the characters in the game. Aft
 
 ###Existing game the component will integrate into
 This component will be integrated into the characters in the COMP150 game.
+
+#### [Code is under the Character AI branch of the COMP150 game.](https://github.com/Wozzarick/Desktop_game/tree/Character-AI)
+
+#Sprint 1:

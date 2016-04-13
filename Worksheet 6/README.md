@@ -42,6 +42,8 @@ While character state = oxygen deprived
 
 ##UML Diagrams: 
 ####Use-case diagram
+![Use case diagram](https://raw.githubusercontent.com/MaddieK19/comp110-coding-task-2/master/Worksheet%206/WS6%20Use%20Case.png)  
+
 
 ####Class diagram  
 ![Class diagram](https://raw.githubusercontent.com/MaddieK19/comp110-coding-task-2/master/Worksheet%206/WS6%20Class%20diagram.png)
@@ -50,3 +52,4 @@ While character state = oxygen deprived
 ![State diagram](https://raw.githubusercontent.com/MaddieK19/comp110-coding-task-2/master/Worksheet%206/WS6%20State%20Machine.png)
 
 ####Sequence diagram
+![Sequence diagram](https://raw.githubusercontent.com/MaddieK19/comp110-coding-task-2/master/Worksheet%206/WS6%20sequence%20diagram.png)
