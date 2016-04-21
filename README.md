@@ -1,5 +1,9 @@
 # COMP110 Coding Task 2 - Game Component
 
+## Location
+This project is being developed in the Group Desktop Game [Level Generation Branch](https://github.com/NecroReindeer/comp150-desktop-game/tree/level-generation). 
+Classses and methods that are a part of this assignment will be indicated in the readme.md of that branch (after the final merge).
+
 ##Proposal
 I intend to create a procedural level generator for our COMP150 game.
 It will include:
@@ -14,3 +18,8 @@ It will include:
 Note that the user stories will be made more specific as we develop and playtest the game
 
 ![Initial Trello Board](https://github.com/NecroReindeer/comp110-coding-task-2/blob/master/Initial.Trello.Board.png)
+
+
+###Sprint 1
+
+###Sprint 2
