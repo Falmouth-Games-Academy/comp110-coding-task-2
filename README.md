@@ -15,3 +15,4 @@ For my coding task two i will take a component from my comp 150 group project ga
 
 ##Commits
 commits for the assignment will be made within my branch called hunter class within our group softfox repositiry on github.
+https://github.com/sw180283/SoftFox/tree/Hunter_Mechanic
