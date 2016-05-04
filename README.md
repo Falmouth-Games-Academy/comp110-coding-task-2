@@ -2,7 +2,18 @@
 
 ## Location
 This project is being developed in the Group Desktop Game [Level Generation Branch](https://github.com/NecroReindeer/comp150-desktop-game/tree/level-generation). 
-Classses and methods that are a part of this assignment will be indicated in the readme.md of that branch (after the final merge).
+
+Classses and methods that are a part of this assignment are as follows:
+
+####Level
+####Maze
+####LevelCell
+####CellEdge
+####CellWall
+####CellDoor
+####CellPassage
+####CellRoom
+
 
 ##Proposal
 I intend to create a procedural level generator for our COMP150 game.
