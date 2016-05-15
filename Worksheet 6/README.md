@@ -16,27 +16,22 @@ Get list of neighbour cells ( current cell/cell the character is on ):
   Add them all to a list of neighbour cells
   return the list
 
-oxygen present = true
 For each cell in neighbour cells list:
   If cell is not oxygenated 
-   character state = oxygen deprived
-  return cell 
-While character state = oxygen deprived
-  If character speed > 1
-    character speed - 0.5
-  Else 
-    character speed = 1
-  
-  If cell's X coordinate > than character's X coordinate
-     character's X coordinate - 1
-  Else
-    character's X coordinate + 1
-    
-  If cell's Y coordinate > than character's Y coordinate
-     character's Y coordinate - 1
-  Else
-    character's Y coordinate + 1
-  
+   character state = suffocating
+   return cell 
+End of for each
+
+While character state = suffocating
+  If oxygen level < 50
+    character speed = suffocating speed
+  If oxygen level < 30
+    character speed = suffocating speed
+    health = health - 1
+  If oxygen level < 30
+    health = health - 2
+End while
+
 ```
   
 
