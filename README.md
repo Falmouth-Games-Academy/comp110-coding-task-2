@@ -51,3 +51,7 @@ IF cell is empty
 END IF
 
 ```
+
+___
+
+The code for the coding task 2 is under the Enviroment_AI branch of the desktop game.
