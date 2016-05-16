@@ -8,13 +8,15 @@ The flowchart below shows the process that leads to the characters in the game c
 The pseudocode below outlines part of the process that takes place when the character is in a room with low or no oxygen. The character class will have a function that creates a list of nearby cells, it will then check those cells to see if any of them are not oxygenated and the character will move away and the characters speed will be reduced.
 
 ```
-Get list of neighbour cells ( current cell/cell the character is on ):
+Function: Get list of neighbour cells ( current cell/cell the character is on ):
   above cell = current cell's Y + cell size
   below cell = current cell's Y - cell size
   right cell = current cell's X + cell size
   left cell = current cell's X - cell size
   Add them all to a list of neighbour cells
   return the list
+End of function  
+
 
 For each cell in neighbour cells list:
   If cell is not oxygenated 
