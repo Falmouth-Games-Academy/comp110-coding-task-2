@@ -3,10 +3,19 @@
 ## Location
 This project is being developed in the Group Desktop Game [Level Generation Branch](https://github.com/NecroReindeer/comp150-desktop-game/tree/level-generation). 
 
-Classses and methods that are a part of this assignment are as follows:
+Classses and methods that are a part of the level generation process are as follows:
 
 ####Level
+generateMaze()
+createCharacter()
+placeExit()
+clearLevel()
+getRandomCoordinatesInRoom()
 ####Maze
+All
+####MazeGenerationManager
+All
+
 ####LevelCell
 ####CellEdge
 ####CellWall
