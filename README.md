@@ -6,15 +6,17 @@ This project is being developed in the Group Desktop Game [Level Generation Bran
 Classses and methods that are a part of the level generation process are as follows:
 
 ####Level
-generateMaze()
-createCharacter()
-placeExit()
-clearLevel()
-getRandomCoordinatesInRoom()
+* generateMaze()
+* createCharacter()
+* placeExit()
+* clearLevel()
+* getRandomCoordinatesInRoom()
+
 ####Maze
-All
+* Everything
+
 ####MazeGenerationManager
-All
+* Everything
 
 ####LevelCell
 ####CellEdge
