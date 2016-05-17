@@ -18,12 +18,15 @@ Classses and methods that are a part of the level generation process are as foll
 ####MazeGenerationManager
 * Everything
 
+####Room
+* Everything
+
 ####LevelCell
 ####CellEdge
 ####CellWall
 ####CellDoor
 ####CellPassage
-####CellRoom
+
 
 
 ##Proposal
