@@ -2,9 +2,9 @@
 #include "CharacterState.h"
 #include "IdleState.h"
 #include "DeadState.h"
-#include "LowOxygenState.h"
-#include"OnFire.h"
+#include "Suffocating.h"
 
+// The character moves based on the keyboard input 
 class PlayerControlledState :
 	public CharacterState
 {
@@ -13,6 +13,6 @@ public:
 	PlayerControlledState();
 	~PlayerControlledState();
 
-	void update(Character& character, Grid grid, const Uint8* keyboardState);
+	void update(Character& character, const Uint8* keyboardState);
 };
 
