@@ -11,7 +11,6 @@ The game component I intend to make is an AI for the characters in the game. Aft
 * Oxygen deprived: If they oxygen level in the room is too low they'll move slower
 
 ###Key user stories;
-
 ![Trello board](https://raw.githubusercontent.com/MaddieK19/comp110-coding-task-2/master/Trello%20board.PNG)
 
 ###Existing game the component will integrate into
@@ -21,4 +20,8 @@ This component will be integrated into the characters in the COMP150 game.
 
 #Sprint 1:
 ![End of sprint 1](https://raw.githubusercontent.com/MaddieK19/comp110-coding-task-2/master/Trello%20board%20and%20cards/Sprint%201%20complete.PNG)  
-The characte can now transition between the idle, dead and player controlled states. The code for changing to the fire or wandering states is there but as those states don't work the character can't transition into them.
+The character can now transition between the idle, dead and player controlled states. The code for changing to the fire or wandering states is there but as those states do not work the character cannot transition into them.
+
+#Sprint 2:
+![End of sprint 2](https://raw.githubusercontent.com/MaddieK19/comp110-coding-task-2/master/Trello%20board%20and%20cards/Sprint%202%20complete.PNG)  
+The character can now wander around a room if the player does not move it for a few seconds. The wandering state was meant to be used for other NPCs but as we didn't have enough time to implement other characters the main character will now wander around. I started working on a base for the character reacting to fire however fire was cut from the game so a fire related character state wasn't needed so I removed it.
