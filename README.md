@@ -22,11 +22,25 @@ Classses and methods that are a part of the level generation process are as foll
 * Everything
 
 ####LevelCell
-####CellEdge
-####CellWall
-####CellDoor
-####CellPassage
+* LevelCell()
+* allEdgesInitialised()
+* getRandomUninitialisedDirection()
+* getBiasedUninitialisedDirection()
+* getEdge()
+* assignRoom()
+* initialisedEdge()
 
+####CellEdge
+* 
+
+####CellWall
+* 
+
+####CellDoor
+* 
+
+####CellPassage
+* 
 
 
 ##Proposal
