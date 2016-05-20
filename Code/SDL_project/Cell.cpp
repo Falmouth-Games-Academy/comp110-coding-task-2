@@ -3,12 +3,15 @@
 
 
 Cell::Cell()
-	: sprite(sprite)
 {
 }
 
-
-Cell::~Cell()
+// 
+Cell::Cell(int x, int y)
 {
+	setX(x);
+	setY(y);
 }
 
+Cell::~Cell(){
+}

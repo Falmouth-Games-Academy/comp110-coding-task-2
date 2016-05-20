@@ -11,28 +11,25 @@ PlayerControlledState::~PlayerControlledState()
 {
 }
 
-void PlayerControlledState::update(Character& character, Grid grid, const Uint8* keyboardState)
+void PlayerControlledState::update(Character& character, const Uint8* keyboardState)
 {
 	character.moveCharacter(keyboardState);
 
+	// If the health reaches 0 the character enters the dead state
 	if (character.health == 0)
 	{
 		character.state = std::make_shared<DeadState>();
-		character.isAlive = false;
 	}
+	// If the keyboard input is not WASD/valid returns to idle state
 	else if (!(keyboardState[SDL_SCANCODE_W] || keyboardState[SDL_SCANCODE_A] || keyboardState[SDL_SCANCODE_S] || keyboardState[SDL_SCANCODE_D]))
 	{
 		character.state = std::make_shared<IdleState>();
 		character.state->timer = 0;
 	}
-	else if (character.getOxygenLevel(character.getX(), character.getY()) < 50)
+	// Character enters suffocating state if the oxygenLevel is too low
+	else if (character.getOxygenLevel(character.getX(), character.getY()) < 60)
 	{
-		character.state = std::make_shared<LowOxygenState>();
-		character.setSpeed(1);
-	}
-	else if (character.isCellOnFire(character.getX(), character.getY()))
-	{
-	character.state = std::make_shared<OnFire>();
-	character.reactToFire();
+		character.state = std::make_shared<Suffocating>();
+		character.setSpeed(character.suffocatingSpeed);
 	}
 }

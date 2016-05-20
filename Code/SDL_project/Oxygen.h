@@ -1,14 +1,16 @@
 #pragma once
+#include "Level.h"
+#include "Cell.h"
+
 class Oxygen
 {
 public:
 	Oxygen();
 	~Oxygen();
 
-	int Get_Oxygen_Level() { return Oxygen_Level; }
-	void spawnOxygen();
+	void update(int cellSize, Level grid);
+	void addOxygen(int mouseX, int mouseY, int cellSize, Level grid);
+	void removeOxygen(int mouseX, int mouseY, int cellSize, Level grid);
 
-private:
-	int Oxygen_Level = 0;
-	
+	int cellX, cellY;
 };

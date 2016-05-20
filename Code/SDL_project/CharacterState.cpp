@@ -11,6 +11,6 @@ CharacterState::~CharacterState()
 {
 }
 
-void CharacterState::update(Character& character, Grid grid, const Uint8* keyboardState)
+void CharacterState::update(Character& character, const Uint8* keyboardState)
 {
 }

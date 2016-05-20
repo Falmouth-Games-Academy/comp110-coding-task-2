@@ -1,58 +1,93 @@
 #pragma once
-#include"Grid.h"
-#include"Coordinates.h"
+#include"Level.h"
+
 class CharacterState; //forward declartion I think
 
+//!  The abstract character class 
+/*!
+  This class is the base for the main character and the NPC. It contains all the functions
+  needed to make the character move and react to different states.
+*/
 class Character
 {//Abstract character class that the other types of character will inherit from
 public:
+	//! A constructor
 	Character();
+	//! A destructor
 	~Character();
 		
 	//Getter methods
+	//! Function that gets the characters X value
 	int getX() { return x; }
+	//! Function that gets the characters Y value
 	int getY() { return y; }
-	int getPreviousX() { return previousX; }
-	int getPreviousY() { return previousY; }
+	//! Function that gets the characters size
 	int getSize() { return size; }
-	int getSpeed() { return moveSpeed; }
+	//! Function that gets the characters speed
+	int getSpeed() { return speed; }
 
 	//Setter methods
+	//! Function that sets the characters X value
 	int setX(int newX) { return x = newX; }
+	//! Function that sets the characters Y value
 	int setY(int newY) { return y = newY; }
-	int setPreviousX(int newX) { return previousX = newX; }
-	int setPreviousY(int newY) { return previousY = newY; }
-	int setSpeed(int newSpeed) { return moveSpeed = newSpeed; }
+	//! Function that sets the characters speed
+	int setSpeed(int newSpeed) { return speed = newSpeed; }
 	
+	//! Shared pointer to the Level loaded in SpaceGame */
+	std::shared_ptr<Level> currentRoom;
+
 	//Cell checking functions
+	//! Checks whether a cell is a room
 	bool isCellARoom(int x, int y);
-	bool isCellOnFire(int x, int y);
+	//! Checks whether a cell is a door
+	bool isCellADoor(int x, int y);
+	//! Checks whether a cell is a room but not a door
+	bool canWanderInRoom(int x, int y);
+	//! Gets the oxygen level of a given room
 	int getOxygenLevel(int x, int y);
-	
-	//Different states
+
+	//! Moves the character depending on the player's input
 	void moveCharacter(const Uint8* keyboardState);
-	void reactToFire();
+	//! If the user doesn't input a move for a given time the character will wander around
 	void wanderAroundRoom();
-
-	void setPreviousLocation(int x, int y);
-	bool checkLocation(int x, int y);
-	void checkMove();
 	
-	//Stores the characters current state 
+	//! An shared pointer to the character's state.
 	std::shared_ptr<CharacterState> state;
-	//Pointer to the grid being used in SpaceGame, used to check the state of a given cell.
-	std::shared_ptr<Grid> currentRoom; 
-	std::vector<std::shared_ptr<Coordinates>> getSurroundingCells();
-
-	int health = 100; //Character health level, will change to use getters and setters
-	bool isAlive = true; //Will be used to decide whether alive or dead sprite should be used
+	
+	//! A double for the character's health
+	double health = 100;
+	//! Boolean for whether character is alive
+	bool isAlive = true; 
+	//! Integer for the direction
+	/*!
+		Direction is used to decide the diretion the character 
+		will move in when in the wandering state
+	*/
+	int direction = 1;
+	//! Integer to store time
+	/*! 
+		Timer is used to count how long the character has been in the Idle state
+	*/
 	double timer = 0;
+	//! Integers for the different movement speeds
+	/*!
+		The possible speeds for the character to move at
+	*/
+	int suffocatingSpeed = 1, wanderSpeed = 2, walkSpeed = 3, runSpeed = 3;
 
 private:
-	int x = 50, y = 50; //Characters intial start X and Y position
-	int previousX = 49, previousY = 49; //stores previous coordinates
-	int size = 50;  //The size of the character sprite when rendered 
-	int moveSpeed = 3; //The speed that the character intially moves at
-	// TODO: Add other speeds normal, running & oxygen deprived
+	//! Integers for the character's X and Y position
+	int x = 50, y = 50;
+	//! Integer for the character size 
+	/*!
+		The size of the character sprite when rendered
+	*/
+	int size = 50;
+	//! Integer for the characters current
+	/*!
+		The character's current speed
+	*/
+	int speed = 3; 
 };
 

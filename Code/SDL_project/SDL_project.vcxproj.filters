@@ -1,46 +1,16 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <ClCompile Include="Coordinates.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Cell.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Character.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="CharacterState.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="IdleState.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="InitialisationError.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="LowOxygenState.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="MainCharacter.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Map.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="OnFire.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Oxygen.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="PlayerControlledState.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="WanderingState.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="SubCharacter.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Texture.cpp">
@@ -52,13 +22,34 @@
     <ClCompile Include="SpaceGame.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Grid.cpp">
+    <ClCompile Include="SDL_project.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Character.cpp">
+      <Filter>Source Files\Character classes</Filter>
+    </ClCompile>
+    <ClCompile Include="MainCharacter.cpp">
+      <Filter>Source Files\Character classes</Filter>
+    </ClCompile>
+    <ClCompile Include="CharacterState.cpp">
+      <Filter>Source Files\States</Filter>
     </ClCompile>
     <ClCompile Include="DeadState.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\States</Filter>
     </ClCompile>
-    <ClCompile Include="SDL_project.cpp">
+    <ClCompile Include="IdleState.cpp">
+      <Filter>Source Files\States</Filter>
+    </ClCompile>
+    <ClCompile Include="Suffocating.cpp">
+      <Filter>Source Files\States</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayerControlledState.cpp">
+      <Filter>Source Files\States</Filter>
+    </ClCompile>
+    <ClCompile Include="WanderingState.cpp">
+      <Filter>Source Files\States</Filter>
+    </ClCompile>
+    <ClCompile Include="Level.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -66,37 +57,16 @@
     <ClInclude Include="Cell.h">
       <Filter>Headers</Filter>
     </ClInclude>
-    <ClInclude Include="Character.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="DeadState.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
     <ClInclude Include="GameConfiguration.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="IdleState.h">
       <Filter>Headers</Filter>
     </ClInclude>
     <ClInclude Include="InitialisationError.h">
       <Filter>Headers</Filter>
     </ClInclude>
-    <ClInclude Include="MainCharacter.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="LowOxygenState.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
     <ClInclude Include="Map.h">
       <Filter>Headers</Filter>
     </ClInclude>
-    <ClInclude Include="OnFire.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
     <ClInclude Include="Oxygen.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="PlayerControlledState.h">
       <Filter>Headers</Filter>
     </ClInclude>
     <ClInclude Include="Resource.h">
@@ -108,25 +78,40 @@
     <ClInclude Include="SpaceGame.h">
       <Filter>Headers</Filter>
     </ClInclude>
-    <ClInclude Include="SubCharacter.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
     <ClInclude Include="targetver.h">
       <Filter>Headers</Filter>
     </ClInclude>
     <ClInclude Include="Texture.h">
       <Filter>Headers</Filter>
     </ClInclude>
-    <ClInclude Include="WanderingState.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="Coordinates.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
     <ClInclude Include="stdafx.h">
       <Filter>Headers</Filter>
     </ClInclude>
-    <ClInclude Include="Grid.h">
+    <ClInclude Include="Character.h">
+      <Filter>Headers\Character Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="MainCharacter.h">
+      <Filter>Headers\Character Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="WanderingState.h">
+      <Filter>Headers\States</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerControlledState.h">
+      <Filter>Headers\States</Filter>
+    </ClInclude>
+    <ClInclude Include="IdleState.h">
+      <Filter>Headers\States</Filter>
+    </ClInclude>
+    <ClInclude Include="DeadState.h">
+      <Filter>Headers\States</Filter>
+    </ClInclude>
+    <ClInclude Include="Suffocating.h">
+      <Filter>Headers\States</Filter>
+    </ClInclude>
+    <ClInclude Include="CharacterState.h">
+      <Filter>Headers\States</Filter>
+    </ClInclude>
+    <ClInclude Include="Level.h">
       <Filter>Headers</Filter>
     </ClInclude>
   </ItemGroup>
@@ -146,6 +131,18 @@
     </Filter>
     <Filter Include="Source Files">
       <UniqueIdentifier>{e1050c3b-6661-4e0f-ad9a-f78f73c03ba3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Headers\Character Classes">
+      <UniqueIdentifier>{0072aba4-18bc-42ba-8ec0-c5d7603daa9d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Headers\States">
+      <UniqueIdentifier>{a193ebfb-e89c-4284-aea5-7f8082c325be}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Character classes">
+      <UniqueIdentifier>{b01eded0-b789-4e14-afee-baa8dc6f46dc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\States">
+      <UniqueIdentifier>{0472703c-3d4f-499d-b006-349b9381dc66}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

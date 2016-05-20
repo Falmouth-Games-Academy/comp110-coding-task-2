@@ -2,27 +2,30 @@
 #include "SpaceGame.h"
 #include "InitialisationError.h"
 #include "Cell.h"
-#include "Grid.h"
+#include "Level.h"
 #include "MainCharacter.h"
 #include "IdleState.h"
-
+#include "Oxygen.h"
 
 SpaceGame::SpaceGame()
-	: notRoomCell("Resources\\cell_test.png"), 
-	roomCell("Resources\\cell_test2.png"),
-	characterTex("Resources\\char.png")
+	: roomCell("Resources\\Room_Cell1.png"),
+	characterTex("Resources\\crew2.png"),
+	doorTexture("Resources\\door_sprite.png"),
+	oxygenTex("Resources\\oxygen.png"),
+	healthBar("Resources\\health.png"),
+	healthText("Resources\\healthText.png"),
+	oxygenBar("Resources\\oxygenBar.png"),
+	oxygenText("Resources\\oxygenText.png")
 {
 	if (SDL_Init(SDL_INIT_VIDEO) < 0)
 	{
 		throw InitialisationError("SDL_Init failed");
 	}
-
 	window = SDL_CreateWindow("COMP150 Game", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, WINDOW_WIDTH, WINDOW_HEIGHT, SDL_WINDOW_SHOWN);
 	if (window == nullptr)
 	{
 		throw InitialisationError("SDL_CreateWindow failed");
 	}
-
 	renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_PRESENTVSYNC);
 	if (renderer == nullptr)
 	{
@@ -40,15 +43,22 @@ SpaceGame::~SpaceGame()
 
 void SpaceGame::run()
 {
-	Grid room;
+	// Level generation
+	Level room;
 	room.makeGrid(WINDOW_WIDTH, WINDOW_HEIGHT);
 	Map mapLoader;
-	mapLoader.LoadMap("Resources\\Map\\test_map.txt", room);
+	mapLoader.generateMap(room);
+	
+	Oxygen oxygen;
+	
 	MainCharacter characterOne;
-	characterOne.currentRoom = std::make_shared<Grid>(room);  //to get room state
+	//Character needs a pointer to the room to get the state
+	characterOne.currentRoom = std::make_shared<Level>(room);
+	//Character starts in Idle state
 	characterOne.state = std::make_shared<IdleState>();
 
 	running = true;
+
 	while (running)
 	{
 		// Handle events
@@ -66,15 +76,29 @@ void SpaceGame::run()
 			}
 		}//End pollevent if
 
-
+		// Checks the keyboard for input
 		const Uint8* keyboardState = SDL_GetKeyboardState(nullptr);
+		// Checks and updates the character state
+		characterOne.state->update(characterOne, keyboardState);
 		
-		characterOne.state->update(characterOne, room, keyboardState);
-
+		// Rendering process:
 		SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
 		SDL_RenderClear(renderer);
 
 		int cellSize = room.getCellSize();
+
+		// Adds and removes oxygen based on mouse click
+		int mouse_X, mouse_Y;
+		if (SDL_GetMouseState(&mouse_X, &mouse_Y) & SDL_BUTTON(SDL_BUTTON_LEFT))
+		{
+			oxygen.addOxygen(mouse_X, mouse_Y, cellSize, room);
+		}
+
+		else if (SDL_GetMouseState(&mouse_X, &mouse_Y) & SDL_BUTTON(SDL_BUTTON_RIGHT))
+		{
+			oxygen.removeOxygen(mouse_X, mouse_Y, cellSize, room);
+		}
+		oxygen.update(cellSize, room);
 		
 		for (int x = 0; x < room.grid.size(); x++)
 		{
@@ -82,20 +106,54 @@ void SpaceGame::run()
 			{
 				int xPos = x * cellSize + cellSize / 2;
 				int yPos = y * cellSize + cellSize / 2;
-				//Renders cell based on state
-				if (room.grid[x][y]->isRoom)//Detects if the cell is a room
+				
+				// Checks if the cell is a room
+				if (room.grid[x][y]->isRoom)
 				{
 					roomCell.render(renderer, xPos, yPos, cellSize, cellSize);
+					oxygenTex.render(renderer, xPos, yPos, cellSize, cellSize);
+					if (room.grid[x][y]->oxygenLevel == 0)
+					{
+						oxygenTex.alterTransparency(256);
+					}
+					else
+					{
+						oxygenTex.alterTransparency(100 - room.grid[x][y]->oxygenLevel);
+					}
 				}
-				//If a cell isn't part of a room don't render
+				// Checks if the cell is a door
+				if (room.grid[x][y]->isDoor)
+				{
+					doorTexture.render(renderer, xPos, yPos, cellSize, cellSize);
+					oxygenTex.render(renderer, xPos, yPos, cellSize, cellSize);
+					if (room.grid[x][y]->oxygenLevel == 0)
+					{
+						oxygenTex.alterTransparency(256);
+					}
+					else
+					{
+						oxygenTex.alterTransparency(100 - room.grid[x][y]->oxygenLevel);
+					}
+				}
+				// Does not render a cell if it isn't part of a room
 			} //End for Y loop
-			
-			
 		}//End for X loop
 
-		//Need to render character based on state 
+		if (characterOne.isAlive)
+		{
+			characterTex.render(renderer, characterOne.getX(), characterOne.getY(), characterOne.getSize(), characterOne.getSize());
+		}			
+		
 		characterTex.render(renderer, characterOne.getX(), characterOne.getY(), characterOne.getSize(), characterOne.getSize());
+		
+		// Renders the health and oxygen bar
+		healthBar.render(renderer, WINDOW_WIDTH , 25, characterOne.health * 10, 25);
+ 		healthBar.alterTransparency(150);
+		healthText.render(renderer, 750, 25, 73, 22);
+		oxygenBar.render(renderer, WINDOW_WIDTH, 50, 1000, 25);
+		oxygenBar.alterTransparency(150);
+		oxygenText.render(renderer, 750, 50, 73, 22);
+		
 		SDL_RenderPresent(renderer);
-	}//End while running
-
+	}// End while running
 }
