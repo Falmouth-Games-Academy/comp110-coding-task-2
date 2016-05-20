@@ -3,7 +3,7 @@
 ## Location
 This project is being developed in the Group Desktop Game [Level Generation Branch](https://github.com/NecroReindeer/comp150-desktop-game/tree/level-generation). 
 
-Classses and methods that are a part of the level generation process are as follows:
+Classses and methods that are specifically a part of the level generation process are as follows:
 
 ####Level
 * generateMaze()
@@ -30,17 +30,12 @@ Classses and methods that are a part of the level generation process are as foll
 * assignRoom()
 * initialisedEdge()
 
-####CellEdge
-* 
+##Trello Board
+###Sprint 1
 
-####CellWall
-* 
+###Sprint 2
 
-####CellDoor
-* 
-
-####CellPassage
-* 
+###Sprint 3
 
 
 ##Proposal
@@ -57,8 +52,3 @@ It will include:
 Note that the user stories will be made more specific as we develop and playtest the game
 
 ![Initial Trello Board](https://github.com/NecroReindeer/comp110-coding-task-2/blob/master/Initial.Trello.Board.png)
-
-
-###Sprint 1
-
-###Sprint 2
