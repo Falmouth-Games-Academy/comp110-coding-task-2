@@ -5,9 +5,9 @@ A changelog of this project is located in CHANGELOG.md, giving an overview offea
 ## Location
 This project is being developed in the Group Desktop Game [Level Generation Branch](https://github.com/NecroReindeer/comp150-desktop-game/tree/level-generation). 
 
-Classses and methods that are specifically a part of the level generation process are as follows:
-###Relevent classes and methods
+Classses and methods that were developed **specifically** for the level generation process are as follows:
 
+###Relevent classes and methods
 ####Level
 * generateMaze()
 * createCharacter()
@@ -32,6 +32,18 @@ Classses and methods that are specifically a part of the level generation proces
 * getEdge()
 * assignRoom()
 * initialisedEdge()
+
+####CellEdge
+* None of the methods, but just its existence (so the constructor, I guess)
+
+####CellDoor
+* None of the methods, but just its existence (so the constructor, I guess) and the fact it inherits from CellEdge
+
+####CellWall
+* None of the methods, but just its existence (so the constructor, I guess) and the fact it inherits from CellEdge
+
+####CellPassage
+* None of the methods, but just its existence (so the constructor, I guess) and the fact it inherits from CellEdge
 
 ##Trello Board
 ###Sprint 1
