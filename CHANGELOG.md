@@ -1,6 +1,32 @@
+##19/05/2016
+* Fixed bug where some large rooms would still not have three doors
+
+##17/05/2016
+* All rooms now have at least three doors, if they are more than 3 cells big
+
+##16/05/2016
+* NPCs no longer spawn in single cell rooms
+
+##03/05/2016
+* One NPC now spawns in each room
+* Guards spawn in corridors and doctors spawn in rooms
+
+##28/04/2016
+* Maze generation is now managed by a separate class
+* Doors always spawn if the room has reached a specified maximum size
+* Corridors now have a tendency to be straight and less expansive
+
+##27/04/2016
+* Rooms know which cells they have in them
+
+##25/04/2016
+* Doors have a random chance to be locked
+* Experimental corridors are now created
+
 ##21/04/2016
 * Cell edges can now be retrieved by passing a direction
 * Can check if edges are walls or not
+* Can now convert between grid and window coordinates
 
 ##22/03/2016
 * Level now regenerates when players coordinates match the exit
