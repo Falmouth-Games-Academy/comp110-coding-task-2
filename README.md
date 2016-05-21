@@ -1,9 +1,12 @@
 # COMP110 Coding Task 2 - Game Component
 
+A changelog of this project is located in CHANGELOG.md, giving an overview offeature implementation and major bug fixes.
+
 ## Location
 This project is being developed in the Group Desktop Game [Level Generation Branch](https://github.com/NecroReindeer/comp150-desktop-game/tree/level-generation). 
 
 Classses and methods that are specifically a part of the level generation process are as follows:
+###Relevent classes and methods
 
 ####Level
 * generateMaze()
@@ -32,10 +35,15 @@ Classses and methods that are specifically a part of the level generation proces
 
 ##Trello Board
 ###Sprint 1
+![Sprint 1](https://github.com/NecroReindeer/comp110-coding-task-2/blob/master/Trello/Sprint%201.png)
+
 
 ###Sprint 2
+![Sprint 2](https://github.com/NecroReindeer/comp110-coding-task-2/blob/master/Trello/Sprint%202.png)
+
 
 ###Sprint 3
+![Sprint 3](https://github.com/NecroReindeer/comp110-coding-task-2/blob/master/Trello/Sprint%203.png)
 
 
 ##Proposal
@@ -51,4 +59,4 @@ It will include:
 ###Proposal Trello Board
 Note that the user stories will be made more specific as we develop and playtest the game
 
-![Initial Trello Board](https://github.com/NecroReindeer/comp110-coding-task-2/blob/master/Initial.Trello.Board.png)
+![Initial Trello Board](https://github.com/NecroReindeer/comp110-coding-task-2/blob/master/Trello/Proposal.png)
