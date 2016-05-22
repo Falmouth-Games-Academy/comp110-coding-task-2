@@ -3,17 +3,16 @@
 
 #include "SoftFox.h"
 
-void SoftFox::run()
+void SoftFox::run() //Worked on in group
 {
 	////Sam Wills coding task two start
 	//Set all default boolean
-	running = true;
 	jump = false;
 	hasJumped = false;
 	playerCollision = false;
 	//Sam Wills coding task two end		
 
-	while (running)
+	while (running) //Work on in group
 	{
 
 		////Sam Wills coding task two start
@@ -51,7 +50,7 @@ void SoftFox::hasFoxTouchedPlatform()
 	playerY += gravity;
 
 	///Find platform x,y coordinates
-	for (int y = 0; y < level->getHeight(); y++) //goes through height of level txt doc for coordinate
+	for (int y = 0; y < level->getHeight(); y++) //goes through height of level txt doc for coordinate 	
 	{
 		for (int x = 0; x < level->getWidth(); x++) //goes through width of level txt doc for coordinate
 		{

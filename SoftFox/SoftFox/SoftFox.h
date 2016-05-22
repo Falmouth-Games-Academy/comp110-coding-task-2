@@ -25,7 +25,6 @@ private:
 	void jumping(); ///Allows player to do a single jump for a certain amount of time
 	void isFoxInWindow(); ///Check if player is in game window and resets player position if not
 
-	bool running; ///Set a boolean to keep the window running until false
 	bool jump;
 	bool hasJumped;
 	bool playerCollision;
