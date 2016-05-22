@@ -12,13 +12,13 @@ public:
 	//! A destructor
 	~Oxygen();
 
-	//!Update method updates the oxygen level each frame
+	//! Update method updates the oxygen level each frame
 	void update(int cellSize, Level grid);
 
-	//!Adds oxygen based on where the mouse was clicked
+	//! Adds oxygen based on where the mouse was clicked
 	void addOxygen(int mouseX, int mouseY, int cellSize, Level grid);
 
-	//!Removes oxygen based on where the mouse was clicked
+	//! Removes oxygen based on where the mouse was clicked
 	void removeOxygen(int mouseX, int mouseY, int cellSize, Level grid);
 
 	//! Getter for getting the oxygen reserve level
