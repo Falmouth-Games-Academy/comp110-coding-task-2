@@ -2,35 +2,36 @@
 #include "Level.h"
 
 
-
+//!  The Class that handlles the creation of rooms
+/*!
+	This class modifies the level class to make patterns out of the cells and turn them into rooms using all of it's various functions.
+*/
 class Map
 {
 public:
+	//! A Constructor
 	Map();
+	//! A Deconstructor
 	~Map();
 
+	//! Generates a random integer.
 	int random(int smallestValue, int largestValue);
 
+	//! Loads in a map from a txt file.
 	void LoadMap(std::string filename, Level room);
 	
-	int getWidth() const { return width; }
-	int getHeight() const { return height; }
-
+	//! Randomly generates a map and modifies the level.
 	void generateMap(Level level);
 
 private:
-
+	//! Used to store room locations
 	std::vector<std::vector<std::vector<std::shared_ptr<Cell>>>> roomVector;
 
-	bool generateRoom(Level level, int size, int entranceX, int entranceY, char direction); //Direction n = north, e = east, s = south, w = west.
-	
-	//For a 800px X 800px window size there are 16 cols X 16 rows
-	Map* map;
-	int width;
-	int height;
-
-	//determines what type of cell it is from the file.
-	//int Cell_Value;
+	//! Used to place rooms in the generate map function
+	/*!
+		Uses four seperate direction's to place rooms more easily later n = north, e = east, s = south, w = west.
+	*/
+	bool generateRoom(Level level, int size, int entranceX, int entranceY, char direction); 
 
 };
 

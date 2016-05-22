@@ -44,12 +44,14 @@ void Map::LoadMap(std::string filename, Level room)
 	}
 }
 
+//returns a random value
 int Map::random(int smallestValue, int largestValue)
 {
 	std::srand(time(nullptr));
 	return (rand() % (largestValue - smallestValue)) + smallestValue;
 }
 
+//Rounds a value to the nearest whole number rather than just rounding down
 int roundToNearestWhole(double number) 
 {
 	if (number + 0.5 >= int(number) + 1)
@@ -62,26 +64,30 @@ int roundToNearestWhole(double number)
 	}
 }
 
-bool Map::generateRoom(Level level, int size, int entranceX, int entranceY, char direction)  //Direction n = north, e = east, s = south, w = west.
+bool Map::generateRoom(Level level, int size, int entranceX, int entranceY, char direction)
 {
 	std::vector<std::vector<std::shared_ptr<Cell>>> room;
 	double topLeftX;
 	double topLeftY;
+	//Finds where the top left corner of the room is when the room is being placed north
 	if (direction == 'n')
 	{
 		topLeftX = entranceX - roundToNearestWhole(size / 2);
 		topLeftY = entranceY - size;
 	}
+	//Finds where the top left corner of the room is when the room is being placed south
 	else if (direction == 's')
 	{
 		topLeftX = entranceX - roundToNearestWhole(size / 2);
 		topLeftY = entranceY + 1;
 	}
+	//Finds where the top left corner of the room is when the room is being placed east
 	else if (direction == 'e')
 	{
 		topLeftX = entranceX + 1;
 		topLeftY = entranceY - roundToNearestWhole(size / 2);
 	}
+	//Finds where the top left corner of the room is when the room is being placed west
 	else
 	{
 		topLeftX = entranceX - size;
@@ -90,17 +96,20 @@ bool Map::generateRoom(Level level, int size, int entranceX, int entranceY, char
 
 	for (int x = topLeftX; x < topLeftX + size; x++)
 	{
-		if (x < 0 || x >= level.grid.size())   									//Detects if the room goes out the level horizontally
+		//Detects if the room goes out the level horizontally
+		if (x < 0 || x >= level.grid.size())
 		{
 			return false;
 		}
 		std::vector<std::shared_ptr<Cell>> column;
 		for (int y = topLeftY; y < topLeftY + size; y++)
 		{
-			if (y < 0 || y >= level.grid[0].size())								//Detects if the room goes out the level vertically
+			//Detects if the room goes out the level vertically
+			if (y < 0 || y >= level.grid[0].size())
 			{
 				return false;
 			}
+			//Detects if room overlaps
 			if (level.grid[x][y]->isRoom == true)
 			{
 				return false;
@@ -109,6 +118,8 @@ bool Map::generateRoom(Level level, int size, int entranceX, int entranceY, char
 		}
 		room.push_back(column);
 	}
+	
+	// Checks if it is the first room and sets the relevant oxygen level.
 	int oxygenLevel;
 	if (roomVector.empty()) 
 	{
@@ -116,10 +127,11 @@ bool Map::generateRoom(Level level, int size, int entranceX, int entranceY, char
 	}
 	else
 	{
-		oxygenLevel = random(0, 100);
+		oxygenLevel = 0;
 	}
 
-	for (int x = 0; x < room.size(); x++)										//Gives all the cells in the room it's properties
+	//Gives all the cells in the room it's properties
+	for (int x = 0; x < room.size(); x++)
 	{
 		for (int y = 0; y < room[0].size(); y++)
 		{
@@ -133,42 +145,45 @@ bool Map::generateRoom(Level level, int size, int entranceX, int entranceY, char
 
 void Map::generateMap(Level level)
 {
+	//Creates a seed to use
 	std::srand(time(nullptr));
 	//Clear a starting room(room 0)
-
 	generateRoom(level, 3, 1, -1, 's');
 	bool thereIsSpace = true;
 	int roomBase = 0;
 
+	//Makes a list of sizes to make sure that all sizes are attempted
 	std::vector<int> randomSizes;
 
 	randomSizes.push_back(2);
 	randomSizes.push_back(3);
 	randomSizes.push_back(4);
-	randomSizes.push_back(5);
 
+	//Makes a list of sizes to make sure that all sizes are attempted
 	std::vector<int> randomDirections;
 
 	randomDirections.push_back(0);
 	randomDirections.push_back(1);
 	randomDirections.push_back(2);
 	randomDirections.push_back(3);
-
-	while (thereIsSpace)                                                                        //loop that makes sure to make rooms until impossible
+	
+	//loop that makes sure to make rooms until all rooms have had all branches attempted
+	while (thereIsSpace)
 	{
-		std::random_shuffle(randomSizes.begin(), randomSizes.end());
+		//loop that trys all directions
 		std::random_shuffle(randomDirections.begin(), randomDirections.end());
-
-		for (int sizeIterator = 0; sizeIterator < randomSizes.size(); sizeIterator++)			//loop that trys all sizes																//loop for adding a room
+		for (int DirectionIterator = 0; DirectionIterator < randomDirections.size(); DirectionIterator++)
 		{
-			int size = randomSizes[sizeIterator];
+			int direction = randomDirections[DirectionIterator];
 
-			for (int DirectionIterator = 0; DirectionIterator < randomDirections.size(); DirectionIterator++)//loop that trys all directions																//loop for adding a room
+			//loop that trys all sizes
+			std::random_shuffle(randomSizes.begin(), randomSizes.end());
+			for (int sizeIterator = 0; sizeIterator < randomSizes.size(); sizeIterator++)
 			{
-				std::random_shuffle(randomSizes.begin(), randomSizes.end());
-				int direction = randomDirections[DirectionIterator];
+				int size = randomSizes[sizeIterator];
 
-				if (direction == 0)																//north
+				//Attempt to place a door north
+				if (direction == 0)
 				{
 					int north = roomVector[roomBase][0][0]->getY();
 					if (north > 0)
@@ -195,7 +210,8 @@ void Map::generateMap(Level level)
 						}
 					}
 				}
-				else if (direction == 1)														//east
+				//Attempt to place a door east
+				else if (direction == 1)
 				{
 					int east = roomVector[roomBase][0][0]->getY();
 					if (east < level.grid.size())
@@ -223,7 +239,8 @@ void Map::generateMap(Level level)
 						}
 					}
 				}
-				else if (direction == 2)														//south
+				//Attempt to place a door south
+				else if (direction == 2)
 				{
 					int south = roomVector[roomBase][0].size() + roomVector[roomBase][0][0]->getY() + 1;
 					if (south < level.grid[0].size())
@@ -250,7 +267,8 @@ void Map::generateMap(Level level)
 						}
 					}
 				}
-				else																			//west
+				//Attempt to place a door west
+				else
 				{
 					int west = roomVector[roomBase].size() + roomVector[roomBase][0][0]->getX() + 1;
 					if (west < level.grid.size())
@@ -280,10 +298,15 @@ void Map::generateMap(Level level)
 				}
 			}
 		}
+		//Check if you can attempt to place a new room
 		roomBase++;
 		if (roomBase  >= roomVector.size())
 		{
 			thereIsSpace = false;
+			//Places Goal in last room generated
+			roomVector[roomVector.size() - 1][roomVector[0].size() / 2][roomVector[0][0].size() / 2] ->isGoal = true;
+			roomVector[roomVector.size() - 1][roomVector[0].size() / 2][roomVector[0][0].size() / 2] ->isDoor = true;
+			roomVector[roomVector.size() - 1][roomVector[0].size() / 2][roomVector[0][0].size() / 2]->oxygenLevel = 100;
 		}
 	}
 }

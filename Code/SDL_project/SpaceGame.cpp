@@ -14,9 +14,13 @@ SpaceGame::SpaceGame()
 	oxygenTex("Resources\\oxygen.png"),
 	healthBar("Resources\\health.png"),
 	healthText("Resources\\healthText.png"),
+	winTexture("Resources\\oxygenBar.png"),
+	winText("Resources\\you_win.png"),
 	oxygenBar("Resources\\oxygenBar.png"),
-	oxygenText("Resources\\oxygenText.png")
-{
+	oxygenText("Resources\\oxygenText.png"),
+	gameOver("Resources\\health.png"),
+	gameOverText("Resources\\game_over.png"),
+	goalTexture("Resources\\goal.png"){
 	if (SDL_Init(SDL_INIT_VIDEO) < 0)
 	{
 		throw InitialisationError("SDL_Init failed");
@@ -56,8 +60,11 @@ void SpaceGame::run()
 	characterOne.currentRoom = std::make_shared<Level>(room);
 	//Character starts in Idle state
 	characterOne.state = std::make_shared<IdleState>();
+	characterOne.windowHeight = WINDOW_HEIGHT;
+	characterOne.windowWidth= WINDOW_WIDTH;
 
 	running = true;
+	double timer = 0;
 
 	while (running)
 	{
@@ -88,7 +95,6 @@ void SpaceGame::run()
 		int cellSize = room.getCellSize();
 
 		// Adds and removes oxygen based on mouse click
-		int mouse_X, mouse_Y;
 		if (SDL_GetMouseState(&mouse_X, &mouse_Y) & SDL_BUTTON(SDL_BUTTON_LEFT))
 		{
 			oxygen.addOxygen(mouse_X, mouse_Y, cellSize, room);
@@ -110,49 +116,76 @@ void SpaceGame::run()
 				// Checks if the cell is a room
 				if (room.grid[x][y]->isRoom)
 				{
+					oxygenTex.alterTransparency(room.grid[x][y]->oxygenLevel);
 					roomCell.render(renderer, xPos, yPos, cellSize, cellSize);
 					oxygenTex.render(renderer, xPos, yPos, cellSize, cellSize);
-					if (room.grid[x][y]->oxygenLevel == 0)
-					{
-						oxygenTex.alterTransparency(256);
-					}
-					else
-					{
-						oxygenTex.alterTransparency(100 - room.grid[x][y]->oxygenLevel);
-					}
+
 				}
 				// Checks if the cell is a door
 				if (room.grid[x][y]->isDoor)
 				{
+					oxygenTex.alterTransparency(room.grid[x][y]->oxygenLevel);
 					doorTexture.render(renderer, xPos, yPos, cellSize, cellSize);
 					oxygenTex.render(renderer, xPos, yPos, cellSize, cellSize);
-					if (room.grid[x][y]->oxygenLevel == 0)
-					{
-						oxygenTex.alterTransparency(256);
-					}
-					else
-					{
-						oxygenTex.alterTransparency(100 - room.grid[x][y]->oxygenLevel);
-					}
+				}
+				//Checks if the cell has the goal on it.
+				if (room.grid[x][y]->isGoal)
+				{
+					oxygenTex.alterTransparency(room.grid[x][y]->oxygenLevel);
+					roomCell.render(renderer, xPos, yPos, cellSize, cellSize);
+					oxygenTex.render(renderer, xPos, yPos, cellSize, cellSize);
+					goalTexture.render(renderer, xPos, yPos, cellSize, cellSize);
 				}
 				// Does not render a cell if it isn't part of a room
 			} //End for Y loop
 		}//End for X loop
 
-		if (characterOne.isAlive)
-		{
-			characterTex.render(renderer, characterOne.getX(), characterOne.getY(), characterOne.getSize(), characterOne.getSize());
-		}			
-		
-		characterTex.render(renderer, characterOne.getX(), characterOne.getY(), characterOne.getSize(), characterOne.getSize());
-		
-		// Renders the health and oxygen bar
-		healthBar.render(renderer, WINDOW_WIDTH , 25, characterOne.health * 10, 25);
- 		healthBar.alterTransparency(150);
+		 // Renders the health and oxygen bar
+		healthBar.render(renderer, WINDOW_WIDTH, 25, characterOne.health * 10, 25);
+		healthBar.alterTransparency(150);
 		healthText.render(renderer, 750, 25, 73, 22);
-		oxygenBar.render(renderer, WINDOW_WIDTH, 50, 1000, 25);
+		oxygenBar.render(renderer, WINDOW_WIDTH, 50, oxygen.getOxygenReserves() / 2, 25);
 		oxygenBar.alterTransparency(150);
 		oxygenText.render(renderer, 750, 50, 73, 22);
+
+		 // If the character has died the game over screen is displayed
+		if (!characterOne.isAlive)
+		{
+			// Fades in a red background
+			if (timer < 255)
+			{				
+				timer++;
+				gameOver.alterTransparency(timer);
+				gameOver.render(renderer, WINDOW_WIDTH/2, WINDOW_HEIGHT/2, WINDOW_WIDTH, WINDOW_HEIGHT);
+			}
+			// Displays text
+			else
+			{
+				gameOver.alterTransparency(255);
+				gameOver.render(renderer, WINDOW_WIDTH / 2, WINDOW_HEIGHT / 2, WINDOW_WIDTH, WINDOW_HEIGHT);
+				gameOverText.render(renderer, WINDOW_WIDTH / 2, WINDOW_HEIGHT / 2, WINDOW_WIDTH, WINDOW_HEIGHT);
+			}
+		}
+		// If the character has reached the end the You Won screen is displayed
+		if (characterOne.hasWon)
+		{
+			// Fades in a blue background
+			if (timer < 255)
+			{
+				timer++;
+				winTexture.alterTransparency(timer);
+				winTexture.render(renderer, WINDOW_WIDTH / 2, WINDOW_HEIGHT / 2, WINDOW_WIDTH, WINDOW_HEIGHT);
+			}
+			// Displays text
+			else
+			{
+				winTexture.alterTransparency(255);
+				winTexture.render(renderer, WINDOW_WIDTH / 2, WINDOW_HEIGHT / 2, WINDOW_WIDTH, WINDOW_HEIGHT);
+				winText.render(renderer, WINDOW_WIDTH / 2, WINDOW_HEIGHT / 2, WINDOW_WIDTH, WINDOW_HEIGHT);
+				
+			}
+		}
+		characterTex.render(renderer, characterOne.getX(), characterOne.getY(), characterOne.getSize(), characterOne.getSize());
 		
 		SDL_RenderPresent(renderer);
 	}// End while running

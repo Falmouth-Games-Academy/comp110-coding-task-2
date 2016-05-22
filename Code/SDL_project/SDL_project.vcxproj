@@ -160,12 +160,12 @@
     <ClInclude Include="Cell.h" />
     <ClInclude Include="Character.h" />
     <ClInclude Include="CharacterState.h" />
-    <ClInclude Include="GameConfiguration.h" />
     <ClInclude Include="DeadState.h" />
     <ClInclude Include="Level.h" />
     <ClInclude Include="IdleState.h" />
     <ClInclude Include="InitialisationError.h" />
-    <ClInclude Include="Suffocating.h" />
+    <ClInclude Include="ReachedGoalState.h" />
+    <ClInclude Include="SuffocatingState.h" />
     <ClInclude Include="MainCharacter.h" />
     <ClInclude Include="Map.h" />
     <ClInclude Include="Oxygen.h" />
@@ -186,7 +186,8 @@
     <ClCompile Include="Level.cpp" />
     <ClCompile Include="IdleState.cpp" />
     <ClCompile Include="InitialisationError.cpp" />
-    <ClCompile Include="Suffocating.cpp" />
+    <ClCompile Include="ReachedGoalState.cpp" />
+    <ClCompile Include="SuffocatingState.cpp" />
     <ClCompile Include="MainCharacter.cpp" />
     <ClCompile Include="Map.cpp" />
     <ClCompile Include="Oxygen.cpp" />

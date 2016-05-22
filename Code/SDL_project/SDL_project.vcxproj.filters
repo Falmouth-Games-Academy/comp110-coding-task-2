@@ -40,9 +40,6 @@
     <ClCompile Include="IdleState.cpp">
       <Filter>Source Files\States</Filter>
     </ClCompile>
-    <ClCompile Include="Suffocating.cpp">
-      <Filter>Source Files\States</Filter>
-    </ClCompile>
     <ClCompile Include="PlayerControlledState.cpp">
       <Filter>Source Files\States</Filter>
     </ClCompile>
@@ -52,12 +49,15 @@
     <ClCompile Include="Level.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="SuffocatingState.cpp">
+      <Filter>Source Files\States</Filter>
+    </ClCompile>
+    <ClCompile Include="ReachedGoalState.cpp">
+      <Filter>Source Files\States</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Cell.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="GameConfiguration.h">
       <Filter>Headers</Filter>
     </ClInclude>
     <ClInclude Include="InitialisationError.h">
@@ -105,14 +105,17 @@
     <ClInclude Include="DeadState.h">
       <Filter>Headers\States</Filter>
     </ClInclude>
-    <ClInclude Include="Suffocating.h">
-      <Filter>Headers\States</Filter>
-    </ClInclude>
     <ClInclude Include="CharacterState.h">
       <Filter>Headers\States</Filter>
     </ClInclude>
     <ClInclude Include="Level.h">
       <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="SuffocatingState.h">
+      <Filter>Headers\States</Filter>
+    </ClInclude>
+    <ClInclude Include="ReachedGoalState.h">
+      <Filter>Headers\States</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -18,11 +18,8 @@ void Level::makeGrid(int Window_Width, int Window_Height)
 		for (int y = 0; y < YAxis_Max; y++)
 		{
 			// Populates the column with pointers to cells
-			Cell cell;
-			cell.setX(x);
-			cell.setY(y);
+			Cell cell(x,y);
 			cell.isRoom = false;
-			cell.getOxygenLevel();
 			auto sharedCell = std::make_shared<Cell> (cell);
 			grid[x].push_back(sharedCell);
 		}
