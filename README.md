@@ -5,7 +5,8 @@ A changelog of this project is located in CHANGELOG.md, giving an overview offea
 ## Location
 This project is being developed in the Group Desktop Game [Level Generation Branch](https://github.com/NecroReindeer/comp150-desktop-game/tree/level-generation). 
 
-Classses and methods that were developed **specifically** for the level generation process are as follows:
+Regarding the Learning Space submission: a copy of the group project game that the component was integrated into is provided, and can be found in the doomed_patient folder.  
+The classses and methods that were developed **specifically** for the level generation process are as follows:
 
 ###Relevent classes and methods
 ####Level
