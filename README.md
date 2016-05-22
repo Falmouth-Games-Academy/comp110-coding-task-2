@@ -3,10 +3,10 @@
 A changelog of this project is located in CHANGELOG.md, giving an overview offeature implementation and major bug fixes.
 
 ## Location
-This project is being developed in the Group Desktop Game [Level Generation Branch](https://github.com/NecroReindeer/comp150-desktop-game/tree/level-generation). The full source and component integrated into it can be found it that repository.
+This project is being developed in the Group Desktop Game [Level Generation Branch](https://github.com/NecroReindeer/comp150-desktop-game/tree/level-generation). The commit log and the full source and component integrated into the game can be found it that repository.
 
-Regarding the Learning Space submission: The files that contain code relevant to the level generation are included in the submission.
-The classses and methods that were developed **specifically** for the level component in this submisssion are as follows:
+Regarding the Learning Space submission: The files that contain code relevant to the level generation from the group project are included in the submission.
+The classses and methods that were developed **specifically** for the level generation component in this submisssion are as follows:
 
 ###Relevent classes and methods
 ####Level
@@ -15,6 +15,7 @@ The classses and methods that were developed **specifically** for the level comp
 * placeExit()
 * clearLevel()
 * getRandomCoordinatesInRoom()
+* placeNPC()
 
 ####Maze
 * Everything
