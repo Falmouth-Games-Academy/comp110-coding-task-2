@@ -54,4 +54,4 @@ END IF
 
 ___
 
-The code for the coding task 2 is under the Enviroment_AI branch of the desktop game.
+The code for the coding task 2 is under the ""Enviroment_AI"" and the "oxygen" branch of the desktop game.
