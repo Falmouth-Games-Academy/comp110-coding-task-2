@@ -49,31 +49,6 @@ public:
 	*/
 	std::shared_ptr<LevelCell> getCell(VectorXY coordinates) { return maze->getCell(coordinates); };
 
-	//! Returns a pointer to the player.
-	/*!
-	  This getter returns the shared pointer to the
-	  player.
-	*/
-	std::shared_ptr<Player> getPlayer() { return player; }
-	
-	//! Returns a pointer to the exit.
-	/*!
-	  This getter returns the shared pointer to the
-	  exit.
-	*/
-	std::shared_ptr<Exit> getExit() { return exit; }
-
-	//! Vector of pointers to characters.
-	/*!
-	This field holds a vector of shared pointers to
-	all instances of characters, which includes the
-	NPCs and the player. Used for rendering etc.
-	*/
-	std::vector<std::shared_ptr<Character>> getCharacters()
-	{
-		return characters;
-	}
-
 	//! Check if the given coordinates are in the level.
 	/*!
 	  This method checks if the given coordinates are contained
@@ -126,7 +101,7 @@ private:
 	  This method places an NPC in a random position in
 	  the given room.
 	*/
-	void Level::placeNPC(std::shared_ptr<Room> room);
+	void placeNPC(std::shared_ptr<Room> room);
 
 	//! Pointer to the game
 	/*!

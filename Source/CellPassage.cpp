@@ -10,9 +10,3 @@ CellPassage::CellPassage(Directions::Direction direction, std::shared_ptr<LevelC
 	initialiseSprite(game);
 	initialisePosition();
 }
-
-
-void CellPassage::initialiseSprite(PatientGame* game)
-{
-		sprite = nullptr;
-}

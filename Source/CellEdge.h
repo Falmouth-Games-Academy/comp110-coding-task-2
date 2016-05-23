@@ -36,27 +36,6 @@ public:
 	*/
 	Directions::Direction getDirection() { return direction; }
 
-	//! Pure virtual method for indicating if edge is wall.
-	/*!
-	  This pure virtual method should be implemented in the subclasses.
-	  It should return a bool that indicates whether the edge is a wall.
-	*/
-	virtual bool isWall() = 0;
-
-	//! Pure virtual method for indicating if edge is door.
-	/*!
-	  This pure virtual method should be implemented in the subclasses.
-	  It should return a bool that indicates whether the edge is a door.
-	*/
-	virtual bool isDoor() = 0;
-
-	//! Pure virtual method for indicating if edge is passage.
-	/*!
-	  This pure virtual method should be implemented in the subclasses.
-	  It should return a bool that indicates whether the edge is a passage.
-	*/
-	virtual bool isPassage() = 0;
-
 protected:
 	//! Direction the egde is on.
 	/*!

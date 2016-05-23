@@ -127,13 +127,6 @@ public:
 		edges[direction] = std::make_shared<EdgeType>(direction, shared_from_this(), game);
 	}
 
-	//! Return the directions of passages.
-	/*!
-	  This method returns a vector containing the directions of
-	  the edges of the cell that are passages.
-	*/
-	std::vector<Directions::Direction> getPassageDirections();
-
 
 private:
 	//! Cell's position on the grid.

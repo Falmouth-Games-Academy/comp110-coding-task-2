@@ -12,18 +12,5 @@ CellWall::CellWall(Directions::Direction direction, std::shared_ptr<LevelCell> c
 }
 
 
-void CellWall::initialiseSprite(PatientGame* game)
-{
-
-	if (direction == Directions::Direction::NORTH || direction == Directions::Direction::SOUTH)
-	{
-		sprite = game->getHorizontalWallSprite();
-	}
-
-	else if (direction == Directions::Direction::EAST || direction == Directions::Direction::WEST)
-	{
-		sprite = game->getVerticalWallSprite();
-	}
-}
 
 

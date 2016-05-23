@@ -9,18 +9,3 @@ CellDoor::CellDoor(Directions::Direction direction, std::shared_ptr<LevelCell> c
 	initialiseSprite(game);
 	initialisePosition();
 }
-
-void CellDoor::initialiseSprite(PatientGame* game)
-{
-	if (direction == Directions::Direction::NORTH || direction == Directions::Direction::SOUTH)
-	{
-			sprite = game->getHorizontalDoorSprite();
-	}
-
-	else if (direction == Directions::Direction::EAST || direction == Directions::Direction::WEST)
-	{
-			sprite = game->getVerticalDoorSprite();
-	}
-}
-
-
