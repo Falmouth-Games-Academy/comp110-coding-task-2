@@ -1,8 +1,9 @@
 # comp110-coding-task-2
 
 ##Commits
-For this assignment, the commits for this project are under SoftFox as is a component from that game.
-For a working executable go to https://github.com/sw180283/SoftFox
+For this assignment, the commits for this project are under SoftFox as is a component from that game.  
+For a working executable go to https://github.com/sw180283/SoftFox  
+The executable submitted with this is from the group project and was worked on as a group.
 
 ##Proposal
 The game component that I want to implement for this task is the physics for the playable character. This includes jumping, falling, and collisions. I think it is achieveable in the time given for this project.
