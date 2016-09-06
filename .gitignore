@@ -234,3 +234,6 @@ _Pvt_Extensions
 
 # FAKE - F# Make
 .fake/
+/comp110_coding_task_2_proposal.out
+/comp110_coding_task_2_proposal.aux
+/Poster/COMP110 Poster.pptx
